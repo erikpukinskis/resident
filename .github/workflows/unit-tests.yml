@@ -1,19 +1,21 @@
-name: test
+name: unit tests
+on: workflow_call
+concurrency:
+  group: run-unit-tests
+  cancel-in-progress: true
 jobs:
-  unit-tests:
-    runs-on: ubuntu-latest
+  run:
+    runs-on: ubuntu-slim
     steps:
       - name: Check out
-        uses: actions/checkout@v3
-      - name: Set up Yarn cache
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v7
+      - run: corepack enable
+      - name: Enable Yarn cache
+        uses: actions/cache@v6
         with:
-          node-version: "18"
-          cache: yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+          path: |
+            .yarn/cache
+            .yarn/unplugged
+          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - run: yarn install --immutable
       - run: yarn test
-concurrency:
-  group: unit-tests
-  cancel-in-progress: true
-on: push
