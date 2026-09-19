@@ -1,5 +1,5 @@
-import { afterAll, beforeAll, describe, expect, it, vi } from "vitest"
 import { PasswordStrategy } from "./PasswordStrategy"
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest"
 import { noop } from "~/helpers/functions"
 import { Resident } from "~/Resident"
 

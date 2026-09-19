@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest"
 import { EmailStrategy } from "./EmailStrategy"
+import { describe, expect, it } from "vitest"
 
 describe("EmailStrategy", () => {
   it("generates verification tokens", () => {
