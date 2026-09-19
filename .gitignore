@@ -1,4 +1,6 @@
 .npmrc
+.pnp.*
+.yarn
 site
 yarn-error.log
 vendor

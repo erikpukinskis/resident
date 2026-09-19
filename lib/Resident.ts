@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken"
 import type { JsonObject } from "./helpers/json"
+import jwt from "jsonwebtoken"
 
 type ResidentArgs = {
   /**
@@ -154,7 +154,7 @@ export class Resident<SessionPayload extends JsonObject> {
         })
 
         return payload as SessionPayload
-      } catch (e) {
+      } catch {
         continue
       }
     }

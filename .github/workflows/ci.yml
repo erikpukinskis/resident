@@ -1,0 +1,18 @@
+name: ci
+on: push
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  types:
+    uses: ./.github/workflows/check-types.yml
+  lint:
+    uses: ./.github/workflows/check-lint.yml
+  code-format:
+    uses: ./.github/workflows/check-code-format.yml
+  unit-tests:
+    uses: ./.github/workflows/unit-tests.yml
+  build:
+    uses: ./.github/workflows/build.yml
