@@ -1,6 +1,6 @@
 {
   "name": "resident",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "UNLICENSED",
   "packageManager": "yarn@4.11.0",
   "engines": {
